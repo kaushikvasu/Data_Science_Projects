@@ -1,0 +1,54 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+
+{% endblock header %}
+
+{% block body %}
+  <section class="header">
+    <h2 class="title">Magic the Gathering: Thesauraus</h2>
+  </section>
+  <hr />
+
+
+  <div class="contenst">
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="row">
+        <div class="three columns">
+          {{ form.magic_card.label }} {{ form.magic_card() }}
+        </div>
+      </div>
+      <div class="row">
+        <button type="submit" class="button-primary">Submit</button>
+      </div>
+    </form>
+
+  </div>
+  <h4>
+      {% if prediction %}
+        Predicted Cards </br>
+        The card and closest 5 cards are: </br>  
+      <pre id="prediction">
+      </pre>
+      {% else %}
+        That is not a card.
+      {% endif %}
+    </h4>
+
+  <div id="tooltip"></div><!-- div to hold tooltip. -->
+<svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
+
+{% endblock body %}
+{% block js %}
+  <script type="text/javascript">
+    var prediction = {{ prediction | safe }};
+
+    d3.select("pre#prediction").text(JSON.stringify(prediction, undefined, 2));
+  </script>
+{% endblock js %}
+
+
+
+
