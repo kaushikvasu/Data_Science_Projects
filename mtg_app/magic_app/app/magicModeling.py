@@ -59,7 +59,7 @@ set_dict = {
     "[FUT]" : "Future-Sight", "[HML]" : "Homelands", "[HOP]" : "Plancechase", "[ICE]" : "Ice-Age", "[INV]" : "Invasion",
     "[ISD]" : "Innistrad", "[JOU]" : "Journey-into-Nyx", "[KTK]" : "Khans-of-Tarkir", "[LEA]" : "Alpha", 
     "[LEB]" : "Beta", "[LEG]" : "Legends", "[LGN]" : "Legions", "[LRW]" : "Lorwyn", "[M10]" : "Magic-2010", 
-    "[M11]" : "Magic-2011", "[M12]" : "Magic-2012", "[M13]" : "Magic-2013", "[M14]" : "Magic-2014", 
+    "[M11]" : "2011-Core-Set", "[M12]" : "Magic-2012", "[M13]" : "Magic-2013", "[M14]" : "Magic-2014", 
     "[M15]" : "Magic-2015", "[MM2]" : "Modern-Masters-2015", "[MMA]" : "Modern-Masters", "[MMQ]" : "Mercadian-Masques",
     "[MRD]" : "Mirrodin", "[NPH]" : "New-Phyrexia", "[ONS]" : "Onslaught", "[ORI]" : "Magic-Origins", 
     "[PC2]" : "Planechase-2012", "[PCY]" : "Prophecy", "[MIR]" : "Mirage", "[MBS]" : "Mirrodin-Besieged",
