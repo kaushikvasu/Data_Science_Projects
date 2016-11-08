@@ -37,36 +37,54 @@ model = NearestNeighbors(n_neighbors=50,n_jobs=-1)
 knn = model.fit(combined_df)
 
 set_dict = {
-    "[10E]" : "Tenth-Edition", "[2ED]" : "Unlimited", "[3ED]" : "Revised", "[4ED]" : "Fourth-Edition",
-    "[5DN]" : "Fifth-Dawn", "[5ED]" : "Fifth-Edition", "[6ED]" : "Sixth-Edition", "[7ED]" : "Seventh-Edition",
-    "[8ED]" : "Eighth-Edition", "[9ED]" : "Ninth-Edition", "[ALA]" : "Shards-of-Alara", "[ALL]" : "Alliances",
-    "[APC]" : "Apocalypse", "[ARB]" : "Alara-Reborn", "[ARC]" : "Archenemy", "[ARN]" : "Arabian-Nights",
-    "[ATQ]" : "Aniquities", "[AVR]" : "Avacyn-Restored", "[BFZ]" : "Battle-for-Zendikar", 
-    "[BNG]" : "Born-of-the-Gods", "[BOK]" : "Betrayers-of-Kamigawa", "[BRB]" : "Battle-Royale", "[BTB]" : "Beatdown",              "[C13]" : "Commander 2013",
-    "[C14]" : "Commander-2014", "[C15]" : "Commander-2015", "[CED]" : "Collectors'-Edition",
-    "[CEI]" : "International-Edition", "[CHK]" : "Champions-of-Kamigawa", "[CHR]" : "Chronicles",
-    "[CM1]" : "Commander's-Arsenal", "[CMD]" : "Commander", "[C13]" : "Commander-2013",
-    "[DD2]" : "Duel Decks: Jace vs. Chandra", "[DD3_DVD]" : "Duel Decks: Divine vs. Demonic", 
-    "[DD3_EVG]" : "Duel Decks: Elves vs. Goblins", "[DD3_GVL]" : "Duel Decks: Garruk vs. Liliana",
-    "[DD3_JVC]" : "Duel Decks: Jace vs. Chandra", "[DDC]" : "Duel Decks: Divine vs. Demonic",
-    "[DDD]" : "Duel Decks: Garruk vs. Liliana", "[DDF]" : "Duel Decks: Elspeth vs. Tezzeret",
-    "[DDG]" : "Duel Decks: Knights vs. Dragons", "[DDH]" : "Duel Deck: Ajani vs. Nicol Bolas",
-    "[DDI]" : "Duel Decks: Venser vs. Koth", "[DDJ]" : "Duel Decks: Izzet vs. Golgari", 
-    "[DDK]" : "Duel Decks: Sorin vs. Tibalt", "[DDL]" : "Duel Decks: Heroes vs. Monsters",
-    "[DDO]" : "Duel Decks: Elspeth vs. Kiora", "[DKA]" : "Dark-Ascension", "[FVD]" : "From-the-Vault:-Dragons",
-    "[DRK]" : "The-Dark", "[DTK]" : "Dragons-of-Tarkir", "[EVE]" : "Eventide", "[EVG]" : "Duel Decks: Elves vs. Goblins",
-    "[EXO]" : "Exodus", "[EXP]" : "Zendikar-Expeditions", "[FEM]" : "Fallen-Empires", "[FRF]" : "Fate-Reforged",
-    "[FUT]" : "Future-Sight", "[HML]" : "Homelands", "[HOP]" : "Plancechase", "[ICE]" : "Ice-Age", "[INV]" : "Invasion",
-    "[ISD]" : "Innistrad", "[JOU]" : "Journey-into-Nyx", "[KTK]" : "Khans-of-Tarkir", "[LEA]" : "Alpha", 
-    "[LEB]" : "Beta", "[LEG]" : "Legends", "[LGN]" : "Legions", "[LRW]" : "Lorwyn", "[M10]" : "Magic-2010", 
-    "[M11]" : "2011-Core-Set", "[M12]" : "Magic-2012", "[M13]" : "Magic-2013", "[M14]" : "Magic-2014", 
-    "[M15]" : "Magic-2015", "[MM2]" : "Modern-Masters-2015", "[MMA]" : "Modern-Masters", "[MMQ]" : "Mercadian-Masques",
-    "[MRD]" : "Mirrodin", "[NPH]" : "New-Phyrexia", "[ONS]" : "Onslaught", "[ORI]" : "Magic-Origins", 
-    "[PC2]" : "Planechase-2012", "[PCY]" : "Prophecy", "[MIR]" : "Mirage", "[MBS]" : "Mirrodin-Besieged",
-    "[CN2]" : "Conspiracy-Take-the-Crown", "[THS]" : "Theros", "[GTC]" : "Gatecrash", "[TSP]" : "Time-Spiral",
-    "[OGW]" : "Oath-of-the-Gatewatch", "[SOI]" : "Shadows-Over-Innistrad", "[EMN]" : "Eldritch-Moon", 
-    "[KLD]" : "Kaladesh", "[PLC]" : "Planar-Chaos", "[RAV]" : "Ravnica", "[JUD]" : "Judgment", "[ME2]" : "Portal-II",
-    "[RTR]" : "Return-to-Ravnica", "[SOM]" : "Scars-of-Mirrodin", "[UNH]" : "Unhinged"
+        #Number
+        "[3ED]" : "3rd-Edition","[4ED]" : "4th-Edition","[5ED]" : "5th-Edition","[6ED]" : "6th-Edition", 
+        "[7ED]" : "7th-Edition","[8ED]" : "8th-Edition","[9ED]" : "9th-Edition","[10E]" : "10th-Edition",
+        "[M10]" : "2010-Core-Set","[M11]" : "2011-Core-Set","[M12]" : "2012-Core-Set","[M13]" : "2013-Core-Set", 
+        "[M14]" : "2014-Core-Set","[M15]" : "2015-Core-Set",
+        #A
+        "[ARB]" : "Alara-Reborn","[ALL]" : "Alliances","[LEA]" : "Alpha","[ATH]":"Anthologies","[ATQ]" : "Aniquities",
+        "[APC]" : "Apocalypse","[ARN]" : "Arabian-Nights","[ARC]" : "Archenemy","[AVR]" : "Avacyn-Restored",
+        #B
+        "[BFZ]" : "Battle-for-Zendikar","[BRB]" : "Battle-Royale","[BTD]" : "Beatdown","[LEB]" : "Beta",
+        "[BOK]" : "Betrayers-of-Kamigawa","[BNG]" : "Born-of-the-Gods", 
+        #C
+        "[CHK]" : "Champions-of-Kamigawa","[CHR]" : "Chronicles","[CSP]":"Coldsnap","[CED]" : "Collectors'-Edition",
+        "[CMD]" : "Commander","[C13]" : "Commander-2013","[C14]" : "Commander-2014","[C15]" : "Commander-2015", 
+        "[C16]" : "Commander-2016","[CM1]" : "Commander's-Arsenal","[CON]" : "Conflux","[CNS]" : "Conspiracy",
+        "[CN2]" : "Conspiracy-Take-the-Crown",
+        #D
+        "[DKA]" : "Dark-Ascension","[DST]" : "Darksteel", "[DIS]" : "Dissension", "[DGM]" : "Dragons-Maze",
+        "[DTK]" : "Dragons-of-Tarkir",
+        #E
+        "[EMN]" : "Eldritch-Moon","[EMA]" : "Eternal-Masters","[EVE]" : "Eventide","[EXO]" : "Exodus",
+        #F
+        "[FEM]" : "Fallen-Empires","[FRF]" : "Fate-Reforged","[5DN]" : "Fifth-Dawn","[FUT]" : "Future-Sight",
+        #G-I
+        "[GTC]" : "Gatecrash","[GPT]" : "Guildpact","[HML]" : "Homelands","[ICE]" : "Ice-Age","[ISD]" : "Innistrad",
+        "[INV]" : "Invasion",
+        #J-L
+        "[JOU]" : "Journey-into-Nyx","[JUD]" : "Judgment","[KLD]" : "Kaladesh","[KTK]" : "Khans-of-Tarkir",
+        "[LEG]" : "Legends","[LGN]" : "Legions","[LRW]" : "Lorwyn",
+        #M
+        "[ORI]" : "Magic-Origins","[MMQ]" : "Mercadian-Masques","[MIR]" : "Mirage","[MRD]" : "Mirrodin",
+        "[MBS]" : "Mirrodin-Besieged","[MMA]" : "Modern-Masters","[MM2]" : "Modern-Masters-2015","[MOR]" : "Morningtide"
+        #N-P
+        "[NEM]" : "Nemesis", "[NPH]" : "New-Phyrexia","[OGW]" : "Oath-of-the-Gatewatch", "[ODY]" : "Odyssey",
+        "[ONS]" : "Onslaught","[PLC]" : "Planar-Chaos","[HOP]" : "Plancechase","[PC2]" : "Planechase-2012",
+        "[PLS]" : "Planeshift","[POR]" : "Portal","[ME2]" : "Portal-II","[PCY]" : "Prophecy",
+        #Q-S
+        "[RAV]" : "Ravnica","[RTR]" : "Return-to-Ravnica","[ROE]" : "Rise-of-the-Eldrazi", "[SOK]" : "Saviors-of-Kamigawa",
+        "[SOM]" : "Scars-of-Mirrodin","[SCG]" : "Scourge","[SHM]" : "Shadowmoor","[SOI]" : "Shadows-Over-Innistrad",
+        "[ALA]" : "Shards-of-Alara", "[STH]" : "Stronghold",
+        #T-V
+        "[TEM]" : "Tempest","[DRK]" : "The-Dark","[THS]" : "Theros","[TSP]" : "Time-Spiral","[TOR]" : "Torment",
+        "[UGL]" : "Unglued","[UNH]" : "Unhinged","[2ED]" : "Unlimited","[USG]" : "Urzas-Saga","[ULG]" : "Urzas-Legacy",
+        "[UDS]" : "Urzas-Destiny","[VIS]" : "Visions",
+        #W-Z
+        "[WEA]" : "Weatherlight","[WWK]" : "Worldwake", "[ZEN]" : "Zendikar"
+
+      
 }
 
 def checkset(set_list):
