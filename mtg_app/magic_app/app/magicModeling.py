@@ -65,8 +65,22 @@ set_dict = {
     "[PC2]" : "Planechase-2012", "[PCY]" : "Prophecy", "[MIR]" : "Mirage", "[MBS]" : "Mirrodin-Besieged",
     "[CN2]" : "Conspiracy-Take-the-Crown", "[THS]" : "Theros", "[GTC]" : "Gatecrash", "[TSP]" : "Time-Spiral",
     "[OGW]" : "Oath-of-the-Gatewatch", "[SOI]" : "Shadows-Over-Innistrad", "[EMN]" : "Eldritch-Moon", 
-    "[KLD]" : "Kaladesh"
+    "[KLD]" : "Kaladesh", "[PLC]" : "Planar-Chaos", "[RAV]" : "Ravnica", "[JUD]" : "Judgment", "[ME2]" : "Portal-II",
+    "[RTR]" : "Return-to-Ravnica", "[SOM]" : "Scars-of-Mirrodin", "[UNH]" : "Unhinged"
 }
+
+def checkset(set_list):
+    #filter sets until i get one in dict
+    for i in range(len(set_list)):
+        set_name1 = set_list[i]
+        set_name2 = "["+set_name1+"]"
+        set_name2 = set_name2.replace(" ","")
+        try:
+            set_name2 = set_dict[set_name2]
+            break
+        except:
+            pass         
+    return set_name2
 
 def predict(name):
 
@@ -84,7 +98,7 @@ def predict(name):
     for k in range(0,len(index)):
         card_name = magic_cards.iloc[index[k],16]
         if card_name not in nearest_list:
-            if i<6:
+            if i<11:
                 card_dict = {}
                 nearest_list.append(card_name)
                 card_dict['card'] = (str(i) + ".")
@@ -99,28 +113,13 @@ def predict(name):
                 card_dict['flavor'] = str(magic_cards.iloc[index[k],5])
                 card_name2 = card_name.replace(" ", "-").replace(",","")
                 
-                #editing set name to get it into cardkingdom form
+                #setting up link
+                card_name2 = card_name.replace(" ", "-").replace(",","").replace("'","")
                 set_name = magic_cards.iloc[index[k],22]
-                set_name = set_name.replace("[","").replace("]","").split(",")[0]
-                set_name = "["+set_name+"]"
-                try:
-                    set_name2 = set_dict[set_name]
-                except:
-                    set_name2 = set_name
+                set_list = set_name.replace("[","").replace("]","").split(",")
+                #filter sets until i get one in dict
+                set_name2 = checkset(set_list)
                 card_dict['link'] = "http://www.cardkingdom.com/mtg/"+str(set_name2)+"/"+card_name2
-                
-                #print checkpoints
-                # print (str(i) + ".")
-                # print (card_name)
-                # print ("Distance Away: "+str(distance[k]))
-                # print ("CMC: "+str(magic_cards.iloc[index[k],2])+" Power/Toughness: "+str(magic_cards.iloc[index[k],21])+"/"+str(magic_cards.iloc[index[k],21]))
-                # print ("Cost: "+str(magic_cards.iloc[index[k],12]))
-                # print ("Type: "+str(magic_cards.iloc[index[k],35]))
-                # print ("Sets: "+str(magic_cards.iloc[index[k],22]))
-                # print ("Text: "+str(magic_cards.iloc[index[k],32]))
-                # print ("Flavor: "+str(magic_cards.iloc[index[k],5]))
-                # print ("Link: ")+"http://www.cardkingdom.com/mtg/"+str(set_name)+"/"+card_name2
-                # print ("------------")
                 
                 i+=1
                 list_dict.append(card_dict)

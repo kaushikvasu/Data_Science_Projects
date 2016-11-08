@@ -29,9 +29,16 @@
   <h4>
       {% if prediction %}
         Predicted Cards </br>
-        The card and closest 5 cards are: </br>  
-      <pre id="prediction">
-      </pre>
+        The card and closest 10 cards are: </br>  
+        <ul>
+          {% for card in prediction %}
+            <li>
+              <a href="{{card['link']}}" target="_blank">{{card['card_name']}}</a>
+            </li>
+          {% endfor %}
+        </ul>
+<!--       <pre id="prediction">
+      </pre> -->
       {% else %}
         That is not a card.
       {% endif %}
@@ -41,13 +48,14 @@
 <svg width="960" height="600" id="statesvg"></svg> <!-- svg to hold the map. -->
 
 {% endblock body %}
-{% block js %}
+
+<!-- {% block js %}
   <script type="text/javascript">
     var prediction = {{ prediction | safe }};
 
     d3.select("pre#prediction").text(JSON.stringify(prediction, undefined, 2));
   </script>
-{% endblock js %}
+{% endblock js %} -->
 
 
 
