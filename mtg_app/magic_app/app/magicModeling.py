@@ -33,7 +33,7 @@ dummied_df = pd.get_dummies(magic_cards_fill_cut)
 
 combined_df = pd.concat([dummied_df, tfidif_df], axis=1, join_axes=[magic_cards_fill_cut.index])
 
-model = NearestNeighbors(n_neighbors=50,n_jobs=-1)
+model = NearestNeighbors(n_neighbors=100,n_jobs=-1)
 knn = model.fit(combined_df)
 
 set_dict = {
@@ -43,7 +43,7 @@ set_dict = {
         "[M10]" : "2010-Core-Set","[M11]" : "2011-Core-Set","[M12]" : "2012-Core-Set","[M13]" : "2013-Core-Set", 
         "[M14]" : "2014-Core-Set","[M15]" : "2015-Core-Set",
         #A
-        "[ARB]" : "Alara-Reborn","[ALL]" : "Alliances","[LEA]" : "Alpha","[ATH]":"Anthologies","[ATQ]" : "Aniquities",
+        "[ARB]" : "Alara-Reborn","[ALL]" : "Alliances","[LEA]" : "Alpha","[ATH]":"Anthologies","[ATQ]" : "Antiquities",
         "[APC]" : "Apocalypse","[ARN]" : "Arabian-Nights","[ARC]" : "Archenemy","[AVR]" : "Avacyn-Restored",
         #B
         "[BFZ]" : "Battle-for-Zendikar","[BRB]" : "Battle-Royale","[BTD]" : "Beatdown","[LEB]" : "Beta",
@@ -68,7 +68,7 @@ set_dict = {
         "[LEG]" : "Legends","[LGN]" : "Legions","[LRW]" : "Lorwyn",
         #M
         "[ORI]" : "Magic-Origins","[MMQ]" : "Mercadian-Masques","[MIR]" : "Mirage","[MRD]" : "Mirrodin",
-        "[MBS]" : "Mirrodin-Besieged","[MMA]" : "Modern-Masters","[MM2]" : "Modern-Masters-2015","[MOR]" : "Morningtide"
+        "[MBS]" : "Mirrodin-Besieged","[MMA]" : "Modern-Masters","[MM2]" : "Modern-Masters-2015","[MOR]" : "Morningtide",
         #N-P
         "[NEM]" : "Nemesis", "[NPH]" : "New-Phyrexia","[OGW]" : "Oath-of-the-Gatewatch", "[ODY]" : "Odyssey",
         "[ONS]" : "Onslaught","[PLC]" : "Planar-Chaos","[HOP]" : "Plancechase","[PC2]" : "Planechase-2012",
@@ -78,11 +78,11 @@ set_dict = {
         "[SOM]" : "Scars-of-Mirrodin","[SCG]" : "Scourge","[SHM]" : "Shadowmoor","[SOI]" : "Shadows-Over-Innistrad",
         "[ALA]" : "Shards-of-Alara", "[STH]" : "Stronghold",
         #T-V
-        "[TEM]" : "Tempest","[DRK]" : "The-Dark","[THS]" : "Theros","[TSP]" : "Time-Spiral","[TOR]" : "Torment",
+        "[TMP]" : "Tempest","[DRK]" : "The-Dark","[THS]" : "Theros","[TSP]" : "Time-Spiral","[TOR]" : "Torment",
         "[UGL]" : "Unglued","[UNH]" : "Unhinged","[2ED]" : "Unlimited","[USG]" : "Urzas-Saga","[ULG]" : "Urzas-Legacy",
         "[UDS]" : "Urzas-Destiny","[VIS]" : "Visions",
         #W-Z
-        "[WEA]" : "Weatherlight","[WWK]" : "Worldwake", "[ZEN]" : "Zendikar"
+        "[WTH]" : "Weatherlight","[WWK]" : "Worldwake", "[ZEN]" : "Zendikar"
 
       
 }
@@ -129,10 +129,9 @@ def predict(name):
                 card_dict['sets'] = str(magic_cards.iloc[index[k],22])
                 card_dict['text'] = str(magic_cards.iloc[index[k],32])
                 card_dict['flavor'] = str(magic_cards.iloc[index[k],5])
-                card_name2 = card_name.replace(" ", "-").replace(",","")
                 
                 #setting up link
-                card_name2 = card_name.replace(" ", "-").replace(",","").replace("'","")
+                card_name2 = card_name.replace(" ", "-").replace(",","").replace("'","").replace(":","")
                 set_name = magic_cards.iloc[index[k],22]
                 set_list = set_name.replace("[","").replace("]","").split(",")
                 #filter sets until i get one in dict
