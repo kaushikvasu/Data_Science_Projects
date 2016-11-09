@@ -119,11 +119,14 @@ def predict(name):
             if i<11:
                 card_dict = {}
                 nearest_list.append(card_name)
-                card_dict['card'] = (str(i) + ".")
+                if i > 0:
+                    card_dict['card'] = (str(i) + ".")
+                else:
+                    card_dict['card'] = ("Original:")
                 card_dict['card_name'] = card_name
                 card_dict['distance_away'] = distance[k]
                 card_dict['cmc'] = str(magic_cards.iloc[index[k],2])
-                card_dict['power_toughness'] = str(magic_cards.iloc[index[k],21])+"/"+str(magic_cards.iloc[index[k],21])
+                card_dict['power_toughness'] = str(magic_cards.iloc[index[k],21])+"/"+str(magic_cards.iloc[index[k],34])
                 card_dict['cost'] = str(magic_cards.iloc[index[k],12])
                 card_dict['type'] = str(magic_cards.iloc[index[k],35])
                 card_dict['sets'] = str(magic_cards.iloc[index[k],22])
