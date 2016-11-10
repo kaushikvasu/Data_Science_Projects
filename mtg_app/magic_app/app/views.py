@@ -16,7 +16,7 @@ logger = logging.getLogger('app')
 
 class PredictForm(Form):
 
-    magic_card = fields.StringField('Select a Magic Card:', validators=[Required()])
+    magic_card = fields.StringField('Select a Magic Card (Through Kaladesh):', validators=[Required()])
   
     submit = fields.SubmitField('Submit')
 

@@ -17,12 +17,15 @@
     font-weight: bold;
     font-size: 14px;
     margin: 5px 0;
-    max-width: 300px;
-    word-wrap: normal;
+    max-width: 500px;
+    word-wrap: break-word;v
   }
   .tooltip_body {
     font-weight: normal;
     margin: 5px 0;
+    max-width: 500px;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
   }
   .button-submit {
     background-color: #3D3D3C;
@@ -32,10 +35,10 @@
   } 
   .ulist {
     list-style-type: none;
+    font-size: 18px;
   }
 
 </style>
-
 {% endblock header %}
 
 {% block body %}
@@ -43,9 +46,8 @@
   <section class="header">
     <h2 class="title" style="color:white;">Magic the Gathering: Thesauraus</h2>
   </section>
-
-    <div id="tooltip"></div>
-
+   
+  <div id="tooltip"></div>
 
   <div class="content">
     <form method="POST">
@@ -56,27 +58,20 @@
         </div>
       </div>
       <div class="row">
-        <button type="submit" class="button-submit">Submit</button>
+        <button type="submit" class="button-submit">Enter</button>
       </div>
     </form>
   </div>
   
-
-
-
   <h4 style="color:white;">
       {% if prediction %}
-        Predicted Cards </br>
-        The card and closest 10 cards are: </br>  
+        <font size="4">The chosen card and the 10 closest: </font></br>  
         <ul class="ulist" id="prediction-result"></ul>
       {% else %}
-        That is not a card.
+        <font size="4">That is not a card.</font>
       {% endif %}
     </h4>
 </body>
-
-<!-- <div id="tooltip"></div> -->
-<!-- <svg width="960" height="600" id="statesvg"></svg> -->
 {% endblock body %}
 
 
