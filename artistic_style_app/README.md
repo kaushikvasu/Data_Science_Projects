@@ -5,3 +5,5 @@ Objective: Create filters based on 10 paintings that can transform an input pict
   
 As my final project for Metis, I wanted to do something completely different from projects I had done before and touch on topics I had not tried. For that reason, I decided to do an image processing project.   
 I thought it would be cool to train filters using neural networks that could transform ordinary pictures into true artistic masterpieces.
+
+![](./starry_dog.png)
