@@ -16,6 +16,7 @@ from scipy.misc import imsave
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b
 import time
+from PIL import Image
 import argparse
 
 from keras.applications import vgg16
@@ -46,6 +47,13 @@ assert img_ncols == img_nrows, 'Due to the use of the Gram matrix, width and hei
 
 # util function to open, resize and format pictures into appropriate tensors
 def preprocess_image(image_path):
+    img = load_img(image_path)
+    # TODO add crop image 
+    img = img.crop()
+
+    
+    img = img.resize(img_nrows,img_ncols)
+
     img = load_img(image_path, target_size=(img_nrows, img_ncols))
     img = img_to_array(img)
     img = np.expand_dims(img, axis=0)
