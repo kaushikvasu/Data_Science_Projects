@@ -7,7 +7,7 @@ python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_referen
 ```
 e.g.:
 ```
-python neural_style_transfer.py test_images/dog.jpg test_images/StarryNight.jpg results/my_result
+python neural_style_transfer.py test_images/goldengate.jpg wiki_images/StarryNight.jpg results/starry_results/bridge_result
 ```
 '''
 from __future__ import print_function
@@ -222,7 +222,7 @@ if K.image_dim_ordering() == 'th':
 else:
     x = np.random.uniform(0, 255, (1, img_nrows, img_ncols, 3)) - 128.
 
-for i in range(10):
+for i in range(50):
     print('Start of iteration', i)
     start_time = time.time()
     x, min_val, info = fmin_l_bfgs_b(evaluator.loss, x.flatten(),
