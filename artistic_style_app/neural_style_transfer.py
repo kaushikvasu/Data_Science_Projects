@@ -7,7 +7,7 @@ python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_referen
 ```
 e.g.:
 ```
-python neural_style_transfer.py test_images/dog.jpg test_images/StarryNight.jpg test_results/dog_result
+python neural_style_transfer.py test_images/benedict.jpg wiki_images/MonaLisa.jpg results/monalisa_results/benedict_result
 ```
 '''
 from __future__ import print_function
