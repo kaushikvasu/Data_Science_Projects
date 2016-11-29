@@ -7,7 +7,7 @@ python neural_style_transfer.py path_to_your_base_image.jpg path_to_your_referen
 ```
 e.g.:
 ```
-python neural_style_transfer.py img/tuebingen.jpg img/starry_night.jpg results/my_result
+python neural_style_transfer.py test_images/dog.jpg test_images/StarryNight.jpg results/my_result
 ```
 '''
 from __future__ import print_function
@@ -47,12 +47,12 @@ assert img_ncols == img_nrows, 'Due to the use of the Gram matrix, width and hei
 
 # util function to open, resize and format pictures into appropriate tensors
 def preprocess_image(image_path):
-    img = load_img(image_path)
-    # TODO add crop image 
-    img = img.crop()
+    # img = load_img(image_path)
+    # # TODO add crop image 
+    # img = img.crop()
 
     
-    img = img.resize(img_nrows,img_ncols)
+    # img = img.resize(img_nrows,img_ncols)
 
     img = load_img(image_path, target_size=(img_nrows, img_ncols))
     img = img_to_array(img)
