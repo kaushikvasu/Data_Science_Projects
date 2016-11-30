@@ -8,7 +8,7 @@ I thought it would be cool to train filters using neural networks that could tra
 
 ### Results
 
-![](./test_images/goldengate.jpg) + ![](./wiki_images/StarryNight.jpg) = 
+![](./demo_images/goldengate.jpg) + ![](./demo_images/StarryNight.jpg) = 
 
 ![](./demo_images/bridge+starry.png)
 
