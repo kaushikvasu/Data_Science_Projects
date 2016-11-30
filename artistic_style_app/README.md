@@ -10,7 +10,8 @@ I thought it would be cool to train filters using neural networks that could tra
 
 ### Results
 
-![](./demo_images/goldengate.jpg) PLUS ![](./demo_images/StarryNight.jpg)
+Add Goldengate Bridge Picture (that I took) to Starry Night (Van Goh)
+![](./demo_images/goldengate.jpg) ![](./demo_images/StarryNight.jpg)
 
 EQUALS ![](./demo_images/bridge+starry.png)
 
