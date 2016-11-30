@@ -11,14 +11,14 @@ I thought it would be cool to train filters using neural networks that could tra
 ### Results
 
 		Golden Gate Bridge
-		![](./demo_images/goldengate.jpg)
+![](./demo_images/goldengate.jpg)
 
 		Starry Night
 +++++++ ![](./demo_images/StarryNight.jpg)
 -------------------------------------------
 		Starry Bridge
 
-		![](./demo_images/bridge+starry.png)
+![](./demo_images/bridge+starry.png)
 
 Other Demos
 
