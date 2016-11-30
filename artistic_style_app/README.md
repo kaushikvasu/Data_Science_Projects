@@ -8,9 +8,11 @@ I thought it would be cool to train filters using neural networks that could tra
 
 ### Results
 
-![](./demo_images/dog+starry.png) ![](./demo_images/bridge+starry.png)
+![](./test_images/goldengate.jpg) + ![](./wiki_images/StarryNight.jpg) = 
+
+![](./demo_images/bridge+starry.png)
 
 ![](./demo_images/dragon+sunrise.png) ![](./demo_images/benedict+monalisa.png) 
 
-![](./demo_images/dog+scream.png)
+![](./demo_images/dog+scream.png) ![](./demo_images/dog+starry.png) 
 
