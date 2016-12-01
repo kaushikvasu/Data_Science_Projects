@@ -92,6 +92,7 @@ input_tensor = K.concatenate([base_image,
                               style_reference_image,
                               combination_image], axis=0)
 
+
 # build the VGG16 network with our 3 images as input
 # the model will be loaded with pre-trained ImageNet weights
 model = vgg16.VGG16(input_tensor=input_tensor,
