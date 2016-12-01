@@ -18,6 +18,7 @@ from scipy.optimize import fmin_l_bfgs_b
 import time
 from PIL import Image
 import argparse
+import json
 
 from keras.applications import vgg16
 from keras import backend as K
@@ -235,3 +236,10 @@ for i in range(50):
     end_time = time.time()
     print('Image saved as', fname)
     print('Iteration %d completed in %ds' % (i, end_time - start_time))
+    
+
+model.save('models/my_model.h5')
+print ("Saved Model")
+with open('models/my_model.json', 'w') as outfile:
+    json.dump(model.to_json(), outfile)
+print ("Saved Structure of Model")
