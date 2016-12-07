@@ -224,11 +224,11 @@ if K.image_dim_ordering() == 'th':
 else:
     x = np.random.uniform(0, 255, (1, img_nrows, img_ncols, 3)) - 128.
 
-model.save('models/my_model_before.h5')
-print ("Saved Before Model")
-with open('models/my_model_before.json', 'w') as outfile:
-    json.dump(model.to_json(), outfile)
-print ("Saved Structure of Model")
+#model.save('models/my_model_before.h5')
+#print ("Saved Before Model")
+#with open('models/my_model_before.json', 'w') as outfile:
+#    json.dump(model.to_json(), outfile)
+#print ("Saved Structure of Model")
     
 for i in range(50):
     print('Start of iteration', i)
@@ -245,8 +245,8 @@ for i in range(50):
     print('Iteration %d completed in %ds' % (i, end_time - start_time))
     
 
-model.save('models/my_model_after.h5')
-print ("Saved Model")
-with open('models/my_model_after.json', 'w') as outfile:
-    json.dump(model.to_json(), outfile)
-print ("Saved Structure of Model")
+#model.save('models/my_model_after.h5')
+#print ("Saved Model")
+#with open('models/my_model_after.json', 'w') as outfile:
+#    json.dump(model.to_json(), outfile)
+#print ("Saved Structure of Model")
