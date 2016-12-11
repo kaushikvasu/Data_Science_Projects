@@ -230,7 +230,7 @@ else:
 #    json.dump(model.to_json(), outfile)
 #print ("Saved Structure of Model")
     
-for i in range(50):
+for i in range(500):
     print('Start of iteration', i)
     start_time = time.time()
     x, min_val, info = fmin_l_bfgs_b(evaluator.loss, x.flatten(),
