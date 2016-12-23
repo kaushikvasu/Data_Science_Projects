@@ -39,6 +39,11 @@
   }
 
 </style>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
 {% endblock header %}
 
 {% block body %}
@@ -53,10 +58,11 @@
     <form method="POST">
       {{ form.hidden_tag() }}
       <div class="row">
-        <div class="three columns" style="color:white;">
-          {{ form.magic_card.label }} {{ form.magic_card() }}
+        <div class="six columns" style="color:white;">
+          {{ form.magic_card.label }} {{ form.magic_card(class_="u-full-width") }}
         </div>
       </div>
+      <br />
       <div class="row">
         <button type="submit" class="button-submit">Enter</button>
       </div>
@@ -79,6 +85,21 @@
 
 
 {% block js %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#magic_card').select2({
+      ajax: {
+        url: "/search",
+        dataType: "json",
+        type: "GET",
+        delay: 1000
+        // cache:"true"
+      }
+    });
+  });
+
+</script>
+
   <script type="text/javascript">
     var prediction = {{ prediction | safe }};
 
