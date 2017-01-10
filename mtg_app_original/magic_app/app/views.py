@@ -26,24 +26,14 @@ class PredictForm(Form):
 
 @app.route("/search")
 def search():
-<<<<<<< HEAD:mtg_app(original)/magic_app/app/views.py
-    # print(request.args)
-=======
->>>>>>> 584351d12c8f60ac431a121b5a62859cb62de0aa:mtg_app/magic_app/app/views.py
-    query = request.args.get("q")
-    if not query:
-        return jsonify({"results": []})
-    query = str(query)
-<<<<<<< HEAD:mtg_app(original)/magic_app/app/views.py
-    # print(query)
+    print(request.args)
+    query = str(request.args.get("q"))
+    print(query)
+    # query = 
     mask = CARDS_DF["name"].str.contains(query, case=False)
-    # print(mask.sum())
+    print(mask.sum())
     items = CARDS_DF.loc[mask, "name"][:100].tolist()
-    # print(items)
-=======
-    mask = CARDS_DF["name"].str.contains(query, case=False)
-    items = CARDS_DF.loc[mask, "name"][:100].tolist()
->>>>>>> 584351d12c8f60ac431a121b5a62859cb62de0aa:mtg_app/magic_app/app/views.py
+    print(items)
 
     name_list = [{"text": item, "id": item} for item in items]
     return jsonify({"results": name_list})

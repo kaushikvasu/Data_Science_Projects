@@ -37,7 +37,6 @@
     list-style-type: none;
     font-size: 18px;
   }
-
 </style>
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
@@ -97,15 +96,12 @@
       }
     });
   });
-
 </script>
 
   <script type="text/javascript">
     var prediction = {{ prediction | safe }};
-
       var tooltip = d3.select("div#tooltip")
         .style("visibility", "hidden");
-
     d3.select("#prediction-result").selectAll("li")
       .data(prediction)
       .enter().append("li")
@@ -117,7 +113,6 @@
           .attr("target", "_blank")
         .append("text")
           .text(function(d) { return d['card_name']; })
-
     d3.select("#prediction-result").selectAll("li")
       .on("mouseover", function(d) {
         console.log(d); 
@@ -147,7 +142,5 @@
      });
   </script>
 {% endblock js %}
-
-
 
 
