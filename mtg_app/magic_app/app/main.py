@@ -11,7 +11,11 @@ from flask import Flask
 # logging.basicConfig(format=FORMAT)
 
 app = Flask(__name__)
-app.config.from_object("app.config")
+# app.config.from_object("app.config")
+app.config.update({
+    'WTF_CSRF_ENABLED': True,
+    'SECRET_KEY': 'you-will-never-guess'
+})
 
 # unpickle my model
 # estimator = joblib.load('models/loan_decision.pkl')
