@@ -1,0 +1,148 @@
+Using Theano backend.
+modprobe: ERROR: ../libkmod/libkmod-module.c:832 kmod_module_insert_module() could not find module by name='nvidia_367_uvm'
+modprobe: ERROR: could not insert 'nvidia_367_uvm': Unknown symbol in module, or unknown parameter (see dmesg)
+WARNING (theano.sandbox.cuda): CUDA is installed, but device gpu is not available  (error: Unable to get the number of gpus available: unknown error)
+Model loaded.
+Start of iteration 0
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_0.png
+Iteration 0 completed in 834s
+Start of iteration 1
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_1.png
+Iteration 1 completed in 318s
+Start of iteration 2
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_2.png
+Iteration 2 completed in 317s
+Start of iteration 3
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_3.png
+Iteration 3 completed in 318s
+Start of iteration 4
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_4.png
+Iteration 4 completed in 317s
+Start of iteration 5
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_5.png
+Iteration 5 completed in 315s
+Start of iteration 6
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_6.png
+Iteration 6 completed in 320s
+Start of iteration 7
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_7.png
+Iteration 7 completed in 313s
+Start of iteration 8
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_8.png
+Iteration 8 completed in 314s
+Start of iteration 9
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_9.png
+Iteration 9 completed in 311s
+Start of iteration 10
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_10.png
+Iteration 10 completed in 313s
+Start of iteration 11
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_11.png
+Iteration 11 completed in 319s
+Start of iteration 12
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_12.png
+Iteration 12 completed in 315s
+Start of iteration 13
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_13.png
+Iteration 13 completed in 307s
+Start of iteration 14
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_14.png
+Iteration 14 completed in 315s
+Start of iteration 15
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_15.png
+Iteration 15 completed in 324s
+Start of iteration 16
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_16.png
+Iteration 16 completed in 323s
+Start of iteration 17
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_17.png
+Iteration 17 completed in 322s
+Start of iteration 18
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_18.png
+Iteration 18 completed in 317s
+Start of iteration 19
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_19.png
+Iteration 19 completed in 309s
+Start of iteration 20
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_20.png
+Iteration 20 completed in 313s
+Start of iteration 21
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_21.png
+Iteration 21 completed in 309s
+Start of iteration 22
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_22.png
+Iteration 22 completed in 324s
+Start of iteration 23
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_23.png
+Iteration 23 completed in 310s
+Start of iteration 24
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_24.png
+Iteration 24 completed in 317s
+Start of iteration 25
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_25.png
+Iteration 25 completed in 314s
+Start of iteration 26
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_26.png
+Iteration 26 completed in 315s
+Start of iteration 27
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_27.png
+Iteration 27 completed in 319s
+Start of iteration 28
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_28.png
+Iteration 28 completed in 312s
+Start of iteration 29
+Current loss value: 3150479616.0
+Image saved as test_results/sunrise+tree_result_at_iteration_29.png
+Iteration 29 completed in 316s
+Start of iteration 30
+Traceback (most recent call last):
+  File "artyfi.py", line 221, in <module>
+    fprime=evaluator.grads, maxfun=20)
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/scipy/optimize/lbfgsb.py", line 193, in fmin_l_bfgs_b
+    **opts)
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/scipy/optimize/lbfgsb.py", line 328, in _minimize_lbfgsb
+    f, g = func_and_grad(x)
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/scipy/optimize/lbfgsb.py", line 278, in func_and_grad
+    f = fun(x, *args)
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/scipy/optimize/optimize.py", line 292, in function_wrapper
+    return function(*(wrapper_args + args))
+  File "artyfi.py", line 196, in loss
+    loss_value, grad_values = eval_loss_and_grads(x)
+  File "artyfi.py", line 175, in eval_loss_and_grads
+    outs = f_outputs([x])
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/keras/backend/theano_backend.py", line 792, in __call__
+    return self.function(*inputs)
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/theano/compile/function_module.py", line 859, in __call__
+    outputs = self.fn()
+  File "/home/ubuntu/miniconda2/lib/python2.7/site-packages/theano/gof/op.py", line 911, in rval
+    def rval(p=p, i=node_input_storage, o=node_output_storage, n=node):
+KeyboardInterrupt
