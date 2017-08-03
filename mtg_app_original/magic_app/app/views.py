@@ -14,10 +14,10 @@ from . import app
 
 logger = logging.getLogger('app')
 
-CARDS_DF = pd.read_csv("app/data/Magic_Pandas_DF.csv")
+CARDS_DF = pd.read_csv("app/data/MagicCards_7_25.csv")
 
 class PredictForm(Form):
-    magic_card = fields.SelectField('Select a Magic Card (Through Kaladesh):', 
+    magic_card = fields.SelectField('Select a Magic Card (Through Hour of Devastation):', 
         choices=[],
         validators=[Required()])
   

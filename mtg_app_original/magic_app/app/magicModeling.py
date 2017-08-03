@@ -9,7 +9,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestNeighbors
 import sklearn.metrics.pairwise as smp
 
-magic_cards = pd.read_csv("app/data/Magic_Pandas_DF.csv", low_memory=False)
+magic_dataset = "app/data/MagicCards_7_25.csv"
+magic_cards = pd.read_csv(magic_dataset, low_memory=False)
 magic_cards = magic_cards.drop(magic_cards.columns[0], axis=1)
 
 # Load Combined_DF
@@ -44,8 +45,9 @@ set_dict = {
         "[M10]" : "2010-Core-Set","[M11]" : "2011-Core-Set","[M12]" : "2012-Core-Set","[M13]" : "2013-Core-Set", 
         "[M14]" : "2014-Core-Set","[M15]" : "2015-Core-Set",
         #A
-        "[ARB]" : "Alara-Reborn","[ALL]" : "Alliances","[LEA]" : "Alpha","[ATH]":"Anthologies","[ATQ]" : "Antiquities",
-        "[APC]" : "Apocalypse","[ARN]" : "Arabian-Nights","[ARC]" : "Archenemy","[AVR]" : "Avacyn-Restored",
+        "[AER]" : "Aether-Revolt","AKH" : "Amonkhet","[ARB]" : "Alara-Reborn","[ALL]" : "Alliances","[LEA]" : "Alpha",
+        "[ATH]":"Anthologies","[ATQ]" : "Antiquities","[APC]" : "Apocalypse","[ARN]" : "Arabian-Nights",
+        "[ARC]" : "Archenemy","[AVR]" : "Avacyn-Restored",
         #B
         "[BFZ]" : "Battle-for-Zendikar","[BRB]" : "Battle-Royale","[BTD]" : "Beatdown","[LEB]" : "Beta",
         "[BOK]" : "Betrayers-of-Kamigawa","[BNG]" : "Born-of-the-Gods", 
@@ -62,8 +64,8 @@ set_dict = {
         #F
         "[FEM]" : "Fallen-Empires","[FRF]" : "Fate-Reforged","[5DN]" : "Fifth-Dawn","[FUT]" : "Future-Sight",
         #G-I
-        "[GTC]" : "Gatecrash","[GPT]" : "Guildpact","[HML]" : "Homelands","[ICE]" : "Ice-Age","[ISD]" : "Innistrad",
-        "[INV]" : "Invasion",
+        "[GTC]" : "Gatecrash","[GPT]" : "Guildpact","[HML]" : "Homelands","[HOU]" : "Hour-of-Devastation",
+        "[ICE]" : "Ice-Age","[ISD]" : "Innistrad","[INV]" : "Invasion",
         #J-L
         "[JOU]" : "Journey-into-Nyx","[JUD]" : "Judgment","[KLD]" : "Kaladesh","[KTK]" : "Khans-of-Tarkir",
         "[LEG]" : "Legends","[LGN]" : "Legions","[LRW]" : "Lorwyn",
