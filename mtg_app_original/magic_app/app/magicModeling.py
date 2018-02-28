@@ -9,7 +9,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestNeighbors
 import sklearn.metrics.pairwise as smp
 
-magic_dataset = "app/data/MagicCards_12_6_17.csv"
+magic_dataset = "app/data/magic_cards_1_21_18.csv"
 magic_cards = pd.read_csv(magic_dataset, low_memory=False)
 magic_cards = magic_cards.drop(magic_cards.columns[0], axis=1)
 
@@ -77,15 +77,15 @@ set_dict = {
         "[ONS]" : "Onslaught","[PLC]" : "Planar-Chaos","[HOP]" : "Plancechase","[PC2]" : "Planechase-2012",
         "[PLS]" : "Planeshift","[POR]" : "Portal","[ME2]" : "Portal-II","[PCY]" : "Prophecy",
         #Q-S
-        "[RAV]" : "Ravnica","[RTR]" : "Return-to-Ravnica","[ROE]" : "Rise-of-the-Eldrazi", "[SOK]" : "Saviors-of-Kamigawa",
-        "[SOM]" : "Scars-of-Mirrodin","[SCG]" : "Scourge","[SHM]" : "Shadowmoor","[SOI]" : "Shadows-Over-Innistrad",
-        "[ALA]" : "Shards-of-Alara", "[STH]" : "Stronghold",
+        "[RAV]" : "Ravnica","[RTR]" : "Return-to-Ravnica","[ROE]" : "Rise-of-the-Eldrazi", "[RIX]" : "Rivals-of-Ixalan",
+        "[SOK]" : "Saviors-of-Kamigawa","[SOM]" : "Scars-of-Mirrodin","[SCG]" : "Scourge","[SHM]" : "Shadowmoor",
+        "[SOI]" : "Shadows-Over-Innistrad","[ALA]" : "Shards-of-Alara", "[STH]" : "Stronghold",
         #T-V
         "[TMP]" : "Tempest","[DRK]" : "The-Dark","[THS]" : "Theros","[TSP]" : "Time-Spiral","[TOR]" : "Torment",
         "[UGL]" : "Unglued","[UNH]" : "Unhinged","[2ED]" : "Unlimited", "[UST]" : "Unstable","[USG]" : "Urzas-Saga",
         "[ULG]" : "Urzas-Legacy", "[UDS]" : "Urzas-Destiny","[VIS]" : "Visions",
         #W-Z
-        "[WTH]" : "Weatherlight","[WWK]" : "Worldwake", "[ZEN]" : "Zendikar"
+        "[WTH]" : "Weatherlight","[WWK]" : "Worldwake", "[XLN]" : "Ixalan","[ZEN]" : "Zendikar"
 
       
 }
@@ -140,6 +140,7 @@ def predict(name):
                 card_name2 = card_name.replace(" ", "-").replace(",","").replace("'","").replace(":","")
                 set_name = magic_cards.iloc[index[k],22]
                 set_list = set_name.replace("[","").replace("]","").split(",")
+                set_list = set_list[::-1]
                 #filter sets until i get one in dict
                 set_name2 = checkset(set_list)
                 card_dict['link'] = "http://www.cardkingdom.com/mtg/"+str(set_name2)+"/"+card_name2

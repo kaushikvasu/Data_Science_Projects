@@ -17,7 +17,7 @@ logger = logging.getLogger('app')
 CARDS_DF = pd.read_csv("app/data/MagicCards_12_6_17.csv")
 
 class PredictForm(Form):
-    magic_card = fields.SelectField('Select a Magic Card (Through Hour of Devastation):', 
+    magic_card = fields.SelectField('Select a Magic Card (Through Ixalan):', 
         choices=[],
         validators=[Required()])
   
