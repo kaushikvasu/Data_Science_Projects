@@ -2,9 +2,9 @@ import logging
 import json
 
 from flask import render_template, request, jsonify
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import fields
-from wtforms.validators import Required
+from wtforms.validators import InputRequired, DataRequired
 import pandas as pd
 import numpy as np
 from app.magicModeling import predict
@@ -16,10 +16,11 @@ logger = logging.getLogger('app')
 
 CARDS_DF = pd.read_csv("app/data/magic_cards_1_21_18.csv")
 
-class PredictForm(Form):
+class PredictForm(FlaskForm):
     magic_card = fields.SelectField('Select a Magic Card (Through Ixalan):', 
         choices=[],
-        validators=[Required()])
+        validators=[DataRequired()]
+        )
   
     submit = fields.SubmitField('Submit')
 

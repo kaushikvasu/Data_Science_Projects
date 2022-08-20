@@ -15,25 +15,27 @@ magic_cards = magic_cards.drop(magic_cards.columns[0], axis=1)
 
 # Load Combined_DF
 # Takes 1:36 to run
-# combined_df = pd.read_csv("app/data/Combined_DF")
-# combined_df = combined_df.drop(combined_df.columns[0], axis=1)
+combined_df = pd.read_csv("app/data/Combined_DF")
+combined_df = combined_df.drop(combined_df.columns[0], axis=1)
 
 # Create combined df manually. 
 # Takes 50sec to rub
-magic_cards_fill = magic_cards.fillna(" ")
-magic_cards_fill['combined_text'] = magic_cards_fill['name']+" "+magic_cards_fill['type']+" "+magic_cards_fill['colors']+" "+magic_cards_fill["text"]+" "+magic_cards_fill["flavor"]+" "+magic_cards_fill["rarity"]
-magic_cards_s = magic_cards_fill['combined_text']
-magic_list = magic_cards_s.tolist
-magic_list = list(magic_cards_s)
-tfidf = TfidfVectorizer(stop_words="english", token_pattern="\\b[a-zA-Z0-9][a-zA-Z0-9]+\\b", min_df=10)
-tfidf_vecs = tfidf.fit_transform(magic_list)
-tfidif_df = pd.DataFrame(tfidf_vecs.todense(), columns=tfidf.get_feature_names())
-new_cards = magic_cards
-new_cards = new_cards.fillna(0.0)
-magic_cards_fill_cut = new_cards.iloc[:,[2,11,21,34]]
-new_df = magic_cards_fill_cut.astype(str)
-dummied_df = pd.get_dummies(new_df)
-combined_df = pd.concat([dummied_df, tfidif_df], axis=1, join_axes=[magic_cards_fill_cut.index])
+# magic_cards_fill = magic_cards.fillna(" ")
+# magic_cards_fill['combined_text'] = magic_cards_fill['name']+" "+magic_cards_fill['type']+" "+magic_cards_fill['colors']+" "+magic_cards_fill["text"]+" "+magic_cards_fill["flavor"]+" "+magic_cards_fill["rarity"]
+# magic_cards_s = magic_cards_fill['combined_text']
+# magic_list = magic_cards_s.tolist
+# magic_list = list(magic_cards_s)
+# tfidf = TfidfVectorizer(stop_words="english", token_pattern="\\b[a-zA-Z0-9][a-zA-Z0-9]+\\b", min_df=10)
+# tfidf_vecs = tfidf.fit_transform(magic_list)
+# tfidif_df = pd.DataFrame(tfidf_vecs.todense(), columns=tfidf.get_feature_names())
+# new_cards = magic_cards
+# new_cards = new_cards.fillna(0.0)
+# magic_cards_fill_cut = new_cards.iloc[:,[2,11,21,34]]
+# new_df = magic_cards_fill_cut.astype(str)
+# dummied_df = pd.get_dummies(new_df)
+# combined_df = pd.concat([dummied_df, tfidif_df], axis=1).reindex(magic_cards_fill_cut.columns)
+# combined_df = combined_df.fillna(0)
+# combined_df.to_csv("app/data/Combined_DF")
 
 model = NearestNeighbors(n_neighbors=100,n_jobs=-1)
 knn = model.fit(combined_df)

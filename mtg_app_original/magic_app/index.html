@@ -1,0 +1,146 @@
+
+{% extends 'base.html' %}
+
+{% block header %}
+<style type="text/css">
+  #tooltip {
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    background-color: #f7f7f7;
+    padding: 3px 12px;
+    font-family: sans-serif;
+    border: 1px solid #bbbbbb;
+    box-shadow: 1px 1px 4px #bbbbbb;
+  }
+  .tooltip_title {
+    font-weight: bold;
+    font-size: 14px;
+    margin: 5px 0;
+    max-width: 500px;
+    word-wrap: break-word;v
+  }
+  .tooltip_body {
+    font-weight: normal;
+    margin: 5px 0;
+    max-width: 500px;
+    white-space: -moz-pre-wrap;
+    white-space: pre-wrap;
+  }
+  .button-submit {
+    background-color: #3D3D3C;
+    color: white;
+    font-size: 16px;
+    border: 1px solid white
+  } 
+  .ulist {
+    list-style-type: none;
+    font-size: 18px;
+  }
+</style>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+{% endblock header %}
+
+{% block body %}
+<body style="background-color:#3D3D3C;">
+  <section class="header">
+    <h2 class="title" style="color:white;">Magic the Gathering: Thesaurus</h2>
+  </section>
+   
+  <div id="tooltip"></div>
+
+  <div class="content">
+    <form method="POST">
+      {{ form.hidden_tag() }}
+      <div class="row">
+        <div class="six columns" style="color:white;">
+          {{ form.magic_card.label }} {{ form.magic_card(class_="u-full-width") }}
+        </div>
+      </div>
+      <br />
+      <div class="row">
+        <button type="submit" class="button-submit">Enter</button>
+      </div>
+    </form>
+  </div>
+  
+  <h4 style="color:white;">
+      {% if prediction %}
+        <font size="4">The chosen card and the 10 closest: </font></br>  
+        <ul class="ulist" id="prediction-result"></ul>
+      {% else %}
+        <font size="4">That is not a card.</font>
+      {% endif %}
+    </h4>
+</body>
+{% endblock body %}
+
+
+
+
+
+{% block js %}
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#magic_card').select2({
+      ajax: {
+        url: "/search",
+        dataType: "json",
+        type: "GET",
+        delay: 1000
+        // cache:"true"
+      }
+    });
+  });
+</script>
+
+  <script type="text/javascript">
+    var prediction = {{ prediction | safe }};
+      var tooltip = d3.select("div#tooltip")
+        .style("visibility", "hidden");
+    d3.select("#prediction-result").selectAll("li")
+      .data(prediction)
+      .enter().append("li")
+        // .text(function(d) { return d['card']; })
+        .append("text")
+          .text(function(d) { return d['card'] + " "; })
+        .append("a")
+          .attr("href", function(d) { return d['link']; })
+          .attr("target", "_blank")
+        .append("text")
+          .text(function(d) { return d['card_name']; })
+    d3.select("#prediction-result").selectAll("li")
+      .on("mouseover", function(d) {
+        console.log(d); 
+        tooltip.html("");
+        tooltip.append("h3").attr("class", "tooltip_title");
+        tooltip.select(".tooltip_title")
+                  .text(d.card + d.card_name);
+        tooltip.append("pre").attr("class", "tooltip_body");
+        tooltip.select(".tooltip_body")
+          .text(
+           "Distance: " + d.distance_away  + "\n" + 
+           "CMC: " + d.cmc + "\n" +
+           "Power/Toughness: " + d.power_toughness + "\n" +
+           "Cost: " + d.cost + "\n" +
+           "Type: "+d.type+"\n"+
+           "Sets: "+d.sets+"\n"+
+           "Text: "+d.text+"\n"+
+           "Flavor: "+d.flavor+"\n"
+          )
+        return tooltip.style("visibility", "visible");
+      })
+      .on("mousemove", function(d) {
+       return tooltip.style("top", (d3.event.pageY-52) + "px").style("left",      (d3.event.pageX+18) + "px");
+     })
+     .on("mouseout", function() {
+       return tooltip.style("visibility", "hidden");
+     });
+  </script>
+{% endblock js %}
+
+

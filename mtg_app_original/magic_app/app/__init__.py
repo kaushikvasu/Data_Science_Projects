@@ -1,5 +1,5 @@
 import logging
-from sklearn.externals import joblib
+import joblib
 
 from flask import Flask
 

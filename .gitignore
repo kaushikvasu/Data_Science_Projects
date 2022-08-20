@@ -26,5 +26,4 @@ pip-delete-this-directory.txt
 
 # Ignore local file
 local/
-data/
 MagicDatasets/
